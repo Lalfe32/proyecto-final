@@ -1,0 +1,438 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap");
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+:root{
+    --bg-color:#f3f3f3;
+    --txt-color:#030303;
+    --br-color: #030303;
+    --cart-color: #f3f3f3;
+}
+
+[data-theme = 'oscuro']{
+    --bg-color: #3f3f3f;
+    --txt-color: #e9e5e5;
+    --br-color: #e9e5e5;
+    --cart-color: #030303;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    line-height: 1.6;
+    font-family: "Ubuntu", sans-serif;
+    background:var(--bg-color);
+    color: var(--txt-color);
+}
+
+.logo {
+    width: 9rem;
+    height: 9rem;
+    border-radius: 60%;
+}
+
+/*==================== toggle swicht ===============*/
+#toggle-label{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 28px;
+    width: 60px;
+    background-color: #1f1e1e;
+    border-radius: 16px;
+    padding: 2px 2px 0 2px;
+    position: relative;
+}
+
+#toggle{
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.slider{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.slider::before{
+    position: absolute;
+    content: '';
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #f3f3f3;
+    top: -1px;
+    left: -1px;
+    box-shadow: blue 0 0 5px;
+    transition: 0.4s;
+}
+
+input:checked + .slider::before{
+    transform: translateX(32px);
+}
+/*====================================================*/
+
+/*=============== Nav ==========================*/
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 8vh;
+    background-color: #D5AEBA;
+}
+
+.ham{
+    display: none;
+    cursor: pointer;
+    border: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.ham span{
+    display: block;
+    background-color: #f3f3f3;
+    height: 3px;
+    width: 28px;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+.enlaces-menu{
+    display: flex;
+    padding: 0;
+}
+
+.enlaces-menu li{
+    padding: 0 40px;
+    list-style-type: none;
+    transition: 0.7s;
+}
+
+.enlaces-menu li a{
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: #f3f3f3;
+    font-weight: 600;
+}
+
+.enlaces-menu li:hover{
+    background-color: #9D588A;
+}
+
+.img_cart{
+    width: 37px;
+    height: 37px;
+    padding: 5px;
+}
+
+/*===========================================*/
+
+/*================= buscador ================*/
+
+.buscar{
+    display: flex;
+    flex-direction: row;
+    position:relative;
+    padding: 5px;
+}
+
+.buscar input{
+    margin-top: 10px;
+    width: 0px;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: #000;
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 30px;
+    transition: all 0.6s ease;
+}
+
+.btn{
+    position:relative;
+    margin-top: 6px;
+    top: 0;
+    right: 4.2rem;
+    background: #440080;
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.buscar:hover input {
+    width: 200px;
+}
+
+.buscar input:focus{
+    width: 200px;
+}
+/*==================================================*/
+
+/*=================== Carousel ========================*/
+
+.carrusel__img {
+    width: 680px;
+    height: 360px;
+}
+
+/*======================================================*/
+
+/*=================== Cards de productos ====================*/
+.producto{
+    /* display: flex;
+    flex-flow: row nowrap; */
+    justify-content: space-around;
+    margin-top: 2rem;
+
+}
+.card{
+    background-color: var(--bg-color);
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+.estilo-c{
+    font-family: sans-serif;
+    width: 30%;
+}
+.estilo-c .img-container{
+    overflow: hidden;
+    height: 250px;
+    position: relative;
+    border-radius: 15px;
+}
+.estilo-c .img-container img{
+    width: 105%;
+    position: absolute;
+    top: -60%;
+    transition: all 0.5s;
+}
+.estilo-c:hover .img-container img{
+    transform: scale(1.2);
+}
+.estilo-c .img-container .promo{
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 20px;
+    background: yellow;
+    padding: 15px;
+    color: black;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+}
+.estilo-c .info-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+}
+.estilo-c .info-container h3{
+    margin: 0;
+    color: var(--txt-color);
+}
+.estilo-c .info-container h3,
+.estilo-c .info-container strong,
+.estilo-c .info-container span{
+    padding: 5px 15px;
+    width: 100%;
+}
+.estilo-c .add-cart{
+    margin-top: 2px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: var(--bg-color);
+    background-color: var(--txt-color);
+    padding: 15px;
+    border: 1px solid var(--br-color);
+    border-radius: 25px;
+}
+.estilo-c .add-cart:hover{
+    color: var(--br-color);
+    background-color: var(--cart-color);
+    border: 1px solid var(--br-color);
+}
+/*========================= Seccion de carrrito ====================*/
+.title_cart{
+    font-family: "Ubuntu", sans-serif;
+    font-size: 2rem;
+}
+
+.subtitle{
+    font-family: "Roboto", sans-serif;
+    font-size: 1.3rem;
+}
+
+.form-control{
+    font-size: 1.5rem;
+}
+/*=========================== Boton del carrito ==============*/
+.btn_Comprar{
+    background-color:rgba(117, 24, 204, 0.911);
+    color: #f3f3f3;
+    padding: 0.6rem 4rem;
+    border: 1px solid white;
+    border-radius: 10%;
+    font-size: medium;
+    font-weight: 700;
+    font-family: "PT Sans",  sans-serif;
+
+}
+
+.btn_Comprar_2{
+    background-color: #9D588A;
+    color: #f3f3f3;
+    padding: 0.6rem 4rem;
+    border: 1px solid white;
+    border-radius: 10%;
+    font-size: medium;
+    font-weight: 700;
+    font-family: "PT Sans",  sans-serif;
+}
+
+.btn_Comprar:hover{
+    background-color:rgba(99, 26, 168, 0.911);
+}
+
+.btn_Comprar_2:hover{
+    background-color: #8a4877;
+}
+/*============================================================*/
+/*======================= Footer =====================*/
+/* footer{
+    margin: 0;
+}
+.footer {
+    background: -webkit-gradient(linear, left top, left bottom, from(#DEBACB), to(#B07C9E));
+    background: linear-gradient(#DEBACB, #B07C9E);
+    margin-top: 1rem;
+    border-top: 2px solid black;
+    width: 100vw;
+    padding:  0 60rem;
+}
+
+footer, p{
+    padding: 0 20rem 0 0;
+}
+
+.lista__color {
+    color: #9D588A !important;
+}
+  
+.lista__color:hover {
+    color: #E2CBDB !important;
+}
+
+footer, ul, li ,a{
+    font-size: 1.30rem;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    word-spacing: 0.50rem;
+
+}
+
+.footer__logo {
+    height: 5.5rem;
+    width: 5.5rem;
+    border-radius: 60%;
+}
+  
+.footer__img {
+    height: 3rem;
+    width: 3rem;
+} */
+
+/*=============================================================================*/
+/* DISPOSITIVOS MOVILES */
+
+@media (max-width:768px){
+    body{
+        overflow: hidden;
+    }
+
+    .logo{
+        padding-left: 25px;
+    }
+
+    .ham{
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        transition: 0.2s 0.1s;
+    }
+
+    .ham:hover{
+        transform: rotate(360deg);
+    }
+
+    nav{
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .enlaces-menu{
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 92vh;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display:none;
+        opacity: 0;
+    }
+
+    .enlaces-menu li{
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+    }
+}
+
+@keyframes muestraMenu {
+    from{opacity: 0;}
+    to{opacity: 1;}
+    
+}
+
+.enlaces-menu.activado{
+    display: flex;
+    animation: muestraMenu 350ms ease-in-out
+    both;
+}
+
+.br-1.animado{
+    transform: rotate(-45deg) translate(-10px, 8px);
+}
+
+.br-2.animado{
+    opacity: 0;
+}
+
+.br-3.animado{
+    transform: rotate(45deg) translate(-10px , -8px);
+}
