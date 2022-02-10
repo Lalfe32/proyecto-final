@@ -1,5 +1,3 @@
-// Practica del curso de soy dalto
-
 /**
  * ========= ¿que es javaScrpit? =========
  *  -Lenguaje de programcion
